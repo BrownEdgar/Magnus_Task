@@ -1,7 +1,9 @@
 
 import React from 'react'
 import { Outlet, NavLink } from 'react-router-dom'
+
 import './Navbar.css'
+
 export default function Layouts() {
   return (
     <>

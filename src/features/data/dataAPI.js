@@ -6,6 +6,7 @@ export function fetchPosts({ usersApi, postApi }) {
     await axios.all([usersrequest, postsrequest])
       .then(axios.spread(function (res1, res2) {
         resolve({ users: res1.data, posts: res2.data })
-      }));
+      }))
+      .catch(err => console.log(err));
   })
 }

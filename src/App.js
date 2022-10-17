@@ -14,7 +14,8 @@ const LazyUsers = lazy(() => import('./components/Products'))
 function App() {
   const dispatch = useDispatch()
   const { data } = useSelector(state => state.users)
-
+  const { status } = useSelector(state => state.users)
+  console.log('data', status)
   useEffect(() => {
     dispatch(getAsyncPosts())
   }, [])
