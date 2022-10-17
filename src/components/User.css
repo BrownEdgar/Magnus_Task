@@ -1,0 +1,147 @@
+.User-ImageBox {
+  width: 100%;
+  height: 350px;
+  position: relative;
+  background-image: url('https://images.unsplash.com/photo-1477959858617-67f85cf4f1df?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1544&q=80');
+  background-repeat: no-repeat;
+  background-position-y: 20%;
+  background-clip: border-box;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-flow: column wrap;
+  padding-top: 40px;
+  color: #fff;
+}
+
+.User-ImageBox::before {
+  content: '';
+  position: absolute;
+  inset: 0 0 0 0;
+  background-color: rgba(19, 85, 114, 0.751);
+}
+
+.User-Content {
+  z-index: 1;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-flow: column wrap;
+}
+
+.User-Initiales {
+  width: 70px;
+  height: 70px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  background-color: #f2f2f2;
+  font-size: 30px;
+  font-weight: 300;
+  letter-spacing: 3px;
+  color: #007bff;
+  align-self: center;
+  user-select: none;
+}
+
+.User-Info {
+  font-size: 16px;
+  font-weight: 300;
+  font-style: italic;
+  line-height: 1.6;
+}
+
+.User-Info>span {
+  color: rgb(238, 255, 0);
+  font-size: 14px;
+}
+
+.User-FullName {
+  margin-top: 8px;
+  align-self: center;
+}
+
+.User-Posts {
+  position: relative;
+  width: 80%;
+  height: 600px;
+  margin: 0 auto;
+  padding: 1rem 2rem;
+  top: -80px;
+  background-color: #f3f3f3;
+  overflow: auto;
+  border-radius: 6px;
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+}
+
+#list {
+  padding: 0;
+  width: 90%;
+  margin: 0 auto;
+  list-style: none;
+}
+
+#list>li {
+  border: 6px double rgba(36, 130, 53, 0.5);
+  margin: 30px 0;
+  position: relative;
+  padding: 12px;
+  padding-left: 24px;
+}
+
+#list>li::before {
+  content: attr(data-id);
+  position: absolute;
+  top: 0;
+  left: 0;
+  transform: translate(-50%, -50%);
+  width: 50px;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+  font-weight: 600;
+  background-color: rgba(19, 86, 114, 1);
+  border-radius: 50%;
+  color: #2dfc52;
+
+}
+
+.User-PostsList-Title {
+  font-variant: small-caps;
+  margin-bottom: 12px;
+  margin-left: 34px;
+  font-size: 40px;
+}
+
+.Post-Title {
+  text-transform: uppercase;
+  margin-bottom: 8px;
+  letter-spacing: 1px;
+}
+
+.Post-Body {
+  line-height: 1.6;
+}
+
+/* Custom Scrollbar rools start */
+.User-Posts::-webkit-scrollbar {
+  width: 10px;
+}
+
+.User-Posts::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+.User-Posts::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 6px;
+}
+
+.User-Posts::-webkit-scrollbar-thumb:hover {
+  background: rgba(19, 85, 114, 0.751);
+}
+
+/* Custom Scrollbar rools end */

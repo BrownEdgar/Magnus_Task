@@ -1,0 +1,81 @@
+:root {
+  --name-color: #007bff;
+  --info-color: #ff8800;
+}
+
+.Products {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 40px 20px;
+  align-items: center;
+  justify-content: space-evenly;
+  padding: 1rem;
+}
+
+.UserItem {
+  position: relative;
+  overflow: hidden;
+  outline: rgba(17, 17, 17, 0.151) solid 1px;
+  outline-offset: 1px;
+  width: calc(50% - 20px);
+  border-radius: 8px;
+  flex: 0 0 calc(50% - 40px);
+  margin: 10px;
+  padding: 25px 15px;
+  line-height: 1.6;
+  cursor: pointer;
+  transition: transform 300ms cubic-bezier(0.34, 2, 0.6, 1), box-shadow 200ms ease;
+}
+
+.UserItem:hover {
+  box-shadow: 0 14px 28px rgb(0 0 0 / 20%);
+  transform: translateY(-10px);
+  -webkit-transform: translateY(-10px);
+  transition: 0.3s;
+}
+
+.UserItem-Info {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  flex-direction: column;
+}
+
+.UserItem-Info>p {
+  height: 30px;
+
+}
+
+.UserItem-Info strong {
+  font-weight: 600;
+  color: var(--info-color);
+}
+
+.UserItem-Name {
+  color: var(--name-color);
+  font-size: 20px;
+  margin-bottom: 12px;
+  position: relative;
+}
+
+.UserItem-Name::before {
+  content: "";
+  position: absolute;
+  height: 1px;
+  width: 100%;
+  right: 0;
+  top: 50%;
+  background: #007bff;
+  background: linear-gradient(90deg, rgba(2, 0, 36, 0) 35%, rgba(2, 191, 255, 0.36) 56%, rgba(0, 212, 255, 1) 100%);
+}
+
+@media(max-width:992px) {
+  .Products {
+    gap: 20px 10px;
+  }
+
+  .UserItem {
+    flex: 1 0 100%;
+  }
+}
