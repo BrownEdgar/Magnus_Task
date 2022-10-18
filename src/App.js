@@ -1,21 +1,22 @@
 import React, { useEffect, Suspense, lazy } from 'react';
 import { Routes, Route } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux';
-
-import Users from './components/User';
-import Layouts from './components/Layouts';
+import { User } from './components/SpecialUserPage';
+import { Layouts } from './components/Layouts';
 import { getAsyncPosts } from './features/data/usersSlice';
+import { UsersLoader } from './components/Loaders';
+import { ErrorPage } from './components/Errorpage';
+import ROUTES from './components/Routes';
 
 import './App.css';
-import UsersLoader from './components/Users-Loader';
-const LazyUsers = lazy(() => import('./components/Products'))
 
+const LazyUsers = lazy(() => import('./components/UserList/Users'))
 
 function App() {
   const dispatch = useDispatch()
   const { data } = useSelector(state => state.users)
   const { status } = useSelector(state => state.users)
-  console.log('data', status)
+
   useEffect(() => {
     dispatch(getAsyncPosts())
   }, [])
@@ -23,14 +24,14 @@ function App() {
   return (
     <div className="App">
       <Routes>
-        <Route path="/" element={<Layouts />}>
+        <Route path={ROUTES.MAIN} element={<Layouts />}>
           <Route index element={
-            <Suspense fallback={<UsersLoader />}>
-              <LazyUsers products={data} />
+            (status === "success") && <Suspense fallback={<UsersLoader />}>
+              <LazyUsers users={data} />
             </Suspense>
           } />
-          <Route path="users/:id" element={<Users />} />
-          <Route path="*" element={<h1>Error</h1>} />
+          <Route path={ROUTES.USERPAGE} element={<User />} />
+          <Route path="*" element={<ErrorPage />} />
         </Route>
       </Routes>
     </div>

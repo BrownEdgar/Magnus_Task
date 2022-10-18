@@ -25,13 +25,10 @@ export const getUserByID = (state, userId) => {
   return state.data.filter(elem => elem.data.id === userId)
 }
 
-export const productsSlice = createSlice({
+export const userSlice = createSlice({
   name: "products",
   initialState,
   reducers: {
-    getUserByID(state, action) {
-
-    }
   },
   extraReducers: (builder) => (
     builder.addCase(getAsyncPosts.pending, (state) => {
@@ -57,7 +54,7 @@ export const productsSlice = createSlice({
   )
 })
 
-export default productsSlice.reducer
+export default userSlice.reducer
 
 
 

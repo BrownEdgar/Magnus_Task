@@ -27,6 +27,7 @@
   justify-content: center;
   align-items: flex-start;
   flex-flow: column wrap;
+  width: 40%;
 }
 
 .User-Initiales {
@@ -45,10 +46,11 @@
   user-select: none;
 }
 
-
 .User-Posts {
   position: relative;
+  z-index: 12;
   width: 80%;
+  min-width: 400px;
   height: 600px;
   margin: 0 auto;
   padding: 1rem 2rem;
@@ -108,6 +110,27 @@
   line-height: 1.6;
 }
 
+.Back-Button {
+  padding: 8px 16px;
+  border-radius: 8px;
+  font-weight: 700;
+  position: relative;
+  top: 20px;
+  left: 20px;
+  cursor: pointer;
+  transition: transform 0.3s 0.1s;
+}
+
+.Back-Button::before {
+  content: "\2B9C";
+  position: relative;
+  left: -6px;
+}
+
+.Back-Button:hover {
+  transform: translateX(-5px);
+}
+
 /* Custom Scrollbar rools start */
 .User-Posts::-webkit-scrollbar {
   width: 10px;
@@ -127,3 +150,10 @@
 }
 
 /* Custom Scrollbar rools end */
+
+/* media rools */
+@media(max-width: 768.98px) {
+  .User-Content {
+    width: 90%;
+  }
+}

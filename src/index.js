@@ -19,7 +19,6 @@ root.render(
       </PersistGate>
     </Provider>
   </Router>
-
 );
 
 

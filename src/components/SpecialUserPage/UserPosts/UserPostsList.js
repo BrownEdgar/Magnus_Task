@@ -1,7 +1,7 @@
 import React from 'react'
 
 export default function UserPostsList({ user }) {
-  console.log(user)
+
   return (
     <div className="User-Posts">
       <h2 className='User-PostsList-Title'>Posts</h2>
