@@ -1,41 +1,61 @@
 import React from 'react'
+import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom'
 import UserIcon from '../UserIcon/UserIcon'
 
-export default function user({ user }) {
+export default function User({ user }) {
 
   return (
     <Link to={`users/${user.id}`} className='UserItem'>
       <div>
         <h4 className='UserItem-Name'>{user.name}</h4>
         <div className='UserItem-Info'>
-          <p className='UserItem-Email'>
+          <p>
             <strong>
               email:
             </strong>
             {' '}
             {user.email}</p>
-          <p className='UserItem-City'>
+          <p>
             <strong>
               city:
             </strong>
             {" "}
             {user.address.city}
           </p>
-          <p className='UserItem-Posts'>
+          <p>
             <strong>
               posts:
             </strong>
             {" "}
             {user.posts.length}
           </p>
-          <p className='UserItem-Website'>
+          <p>
             <strong>
-              website:
-            </strong> {user.website}</p>
+              company:
+            </strong> {user.company?.name}</p>
         </div>
       </div>
       <UserIcon />
     </Link>
   )
+}
+
+User.propTypes = {
+  user: PropTypes.shape({
+    company: PropTypes.shape({
+      name: PropTypes.string,
+    }),
+    email: PropTypes.string,
+    id: PropTypes.number,
+    name: PropTypes.string,
+    posts: PropTypes.arrayOf(PropTypes.shape({
+      body: PropTypes.string,
+      id: PropTypes.number,
+      title: PropTypes.string,
+      userId: PropTypes.number,
+    })),
+    username: PropTypes.string,
+    website: PropTypes.string,
+  }),
 }

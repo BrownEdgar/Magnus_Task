@@ -15,10 +15,29 @@ export default function Users({ users }) {
 }
 
 Users.propTypes = {
-  users: PropTypes.arrayOf(PropTypes.shape({
+  user: PropTypes.shape({
+    address: PropTypes.shape({
+      city: PropTypes.string,
+      street: PropTypes.string,
+      suite: PropTypes.string,
+      zipcode: PropTypes.string,
+    }),
+    company: PropTypes.shape({
+      bs: PropTypes.string,
+      catchPhrase: PropTypes.string,
+      name: PropTypes.string,
+    }),
+    email: PropTypes.string,
     id: PropTypes.number,
-    title: PropTypes.string,
-    description: PropTypes.string,
-  })),
-  status: PropTypes.string,
+    name: PropTypes.string,
+    phone: PropTypes.string,
+    posts: PropTypes.arrayOf(PropTypes.shape({
+      body: PropTypes.string,
+      id: PropTypes.number,
+      title: PropTypes.string,
+      userId: PropTypes.number,
+    })),
+    username: PropTypes.string,
+    website: PropTypes.string,
+  })
 }

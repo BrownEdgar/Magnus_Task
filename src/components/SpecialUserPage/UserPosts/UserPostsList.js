@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types';
 
 export default function UserPostsList({ user }) {
 
@@ -17,4 +18,15 @@ export default function UserPostsList({ user }) {
       </ul>
     </div>
   )
+}
+
+UserPostsList.propTypes = {
+  user: PropTypes.shape({
+    posts: PropTypes.arrayOf(PropTypes.shape({
+      body: PropTypes.string,
+      id: PropTypes.number,
+      title: PropTypes.string,
+      userId: PropTypes.number,
+    })),
+  }),
 }
